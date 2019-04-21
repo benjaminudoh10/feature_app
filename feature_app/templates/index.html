@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% import '_pagination.html' as macros %}
+{% block body %}
+    <div class="ui text container home">
+        <h1 class="header"><span>IWS</span>Feature Request App</h1>
+        <div class="ui grid">
+            <div class="row" id="feature-request-add">
+                <div class="ui twelve wide column">
+                    <div class="ui icon button" id="feature-request-button">
+                        <i class="ui add icon"></i>Add a feature request
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="return-button">
+                <div class="ui sixteen wide column">
+                    <a class="ui right floated blue icon button" href="/">
+                        <i class="ui arrow alternate circle left outline icon"></i>Return
+                    </a>
+                </div>
+            </div>
+            {% if feature_requests | length %}
+                <div class="row" id="requests-table">
+                    <div class="ui sixteen wide column">
+                        <div class="ui piled segment">
+                            <div class="ui dividing header">Feature Requests</div>
+                            <table class="ui striped table">
+                                <thead>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Client</th>
+                                    <th>Client Priority</th>
+                                    <th>Target Date</th>
+                                    <th>Product Area</th>
+                                </thead>
+                                <tbody>
+                                    {% for request in feature_requests %}
+                                        <tr>
+                                            <td>{{ request.title }}</td>
+                                            <td>{{ request.description }}</td>
+                                            <td>{{ request.client.name}} </td>
+                                            <td>{{ request.client_priority }}</td>
+                                            <td>{{ request.target_date.strftime('%B %d, %Y') }}</td>
+                                            <td>{{ request.product_area.name }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pagination">
+                            {{ macros.pagination_widget(pagination, 'index') }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="row" id="feature-request-form">
+                <div class="sixteen wide column">
+                    <div class="ui stacked segment">
+                        <form class="ui form" id="features-form">
+                            <h3>New Feature Request</h3>
+                            <div class="field">
+                                <label>Title</label>
+                                <input type="text" name="title" placeholder="Feature Title">
+                            </div>
+                            <div class="field">
+                                <label>Description</label>
+                                <textarea name="description" placeholder="Feature Description"></textarea>
+                            </div>
+                            <div class="field">
+                                <label>Client</label>
+                                <select name="client" class="ui fluid dropdown">
+                                    <option value="" selected="selected" disabled>Select a value</option>
+                                    <option value="Client A">Client A</option>
+                                    <option value="Client B">Client B</option>
+                                    <option value="Client C">Client C</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label>Client Priority</label>
+                                <input type="number" name="client_priority"
+                                    placeholder="Client priority e.g. 3">
+                            </div>
+                            <div class="ui field">
+                                <label>Target Date</label>
+                                <input id="target-date" type="text" 
+                                    name="target_date" placeholder="Select a date">
+                            </div>
+                            <div class="ui field">
+                                <label>Product Area</label>
+                                <select name="product_area" class="ui fluid dropdown">
+                                    <option value="" selected="selected" disabled>Select a value</option>
+                                    <option value="Policies">Policies</option>
+                                    <option value="Billing">Billing</option>
+                                    <option value="Claims">Claims</option>
+                                    <option value="Reports">Reports</option>
+                                </select>
+                            </div>
+                            <button id="submit-button" 
+                                class="ui green basic button" type="submit">
+                                Submit
+                            </button>
+                            <div class="ui error message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="form-filled">
+                <div class="ui twelve wide column">
+                    <div class="ui message">
+                        <p>Thank you for filling.</p>
+                        <p>Your feature request has been successfully sent.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="error-form">
+                <div class="ui twelve wide column">
+                    <div class="ui error message">
+                        <p>An error occured while trying to make your feature request.</p>
+                        <p>Please try again or contact support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

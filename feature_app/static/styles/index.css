@@ -1,0 +1,31 @@
+body {
+    background: linear-gradient(to right, #c0ddee, #f0e0ea);
+}
+
+.home {
+    padding: 40px;
+    color: rgba(26,26,26,.7);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    width: 70vw;
+    background: linear-gradient(to right, #69bcf4, #30cc8b);
+}
+
+.header > span {
+    font-size: 48px;
+    color: white;
+}
+
+.ui.dividing.header {
+    color: #219da6;
+}
+
+#feature-request-button {
+    background-color: #018ea7;
+    color: #ffffff;
+}
+
+#return-button, #feature-request-form, #form-filled, #error-form {
+    display: none;
+}
