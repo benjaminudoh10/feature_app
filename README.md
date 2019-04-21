@@ -37,4 +37,4 @@ It was built with the Flask Web Framework
 ## Deployment
 This application was deployed to pythonanywhere.com which has servers that run on Ubuntu. It was deployed by cloning the application from the current repository on github and setting up the database.
 
->Visit http://adeyinka.pythonanywhere.com/ to view the current landing page of this project.
+>Visit http://ben-feature-req.pythonanywhere.com/ to view the current landing page of this project.
