@@ -63,6 +63,26 @@ class TestCase(unittest.TestCase):
                          datetime.strptime('1993-11-16', '%Y-%m-%d'))
         self.assertEqual(feature_request.product_area.name, 'Policies')
 
+    def test_result_is_paginated(self):
+        form_values = [
+            [
+                {'name': 'title', 'value': str(i)},
+                {'name': 'description', 'value': str(i)},
+                {'name': 'client', 'value': 'Client A'},
+                {'name': 'client_priority', 'value': 1},
+                {'name': 'target_date', 'value': '2018-01-30'},
+                {'name': 'product_area', 'value': 'Policies'}
+            ] for i in range(12)
+        ]
+
+        for item in form_values:
+            response = self.app.post('/', data=json.dumps(item))
+            self.assertEqual(response.status_code, 200)
+        
+        # check if page content is paginated
+        response = self.app.get('/')
+        self.assertIn('/?page=2', response.data)
+
     def test_client_priority_increments_by_1(self):
         form_values1 = [
             {'name': 'title', 'value': 'Add pagination to the listing.'},

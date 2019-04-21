@@ -16,9 +16,9 @@ It was built with the Flask Web Framework
 
 ### Usage:
 
-1. Fetch repository, `git clone https://github.com/benjaminudoh10/Feature_Request_App.git`
+1. Fetch repository, `git clone https://github.com/benjaminudoh10/feature_app.git`
 
-2. `cd Feature_Request_App`
+2. `cd feature_app`
 
 3. Install dependencies from requirements.txt `pip install -r requirements.txt`
 
