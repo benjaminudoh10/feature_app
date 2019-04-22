@@ -1,5 +1,5 @@
 import sys
-path = '/home/ben/mysite/FeatureRequestApp'
+path = '/home/benjaminudoh10/feature_app'
 if path not in sys.path:
    sys.path.insert(0, path)
 
