@@ -3,10 +3,10 @@ from cryptography.fernet import Fernet
 key = 'TluxwB3fV_GWuLkR1_BzGs1Zk90TYAuhNMZP_0q4WyM='
 
 # Oh no! The code is going over the edge! What are you going to do?
-message = b'gAAAAABcMiwbvnL4t3YFgMG8KCB_b78MKGyZHfQ_7GsZHNtHbpIzpMmgrO0-' \
-    b'9hJTDJ5B2D54HlkKMMtT9PwB5HmSqpFJ10SPR-5xD0y0WAJ6Pfpc5APRkp77Zt4VJR' \
-    b'9hHNViJ6pnJtE4vJ4BKWJ90I49tiosqvgYgsUh-dhc7JYtKAwb0CT830CSEeVW' \
-    b'46FWRJ-MQgu1c4lO'
+message = b'gAAAAABcv1_6_oxebQgv00dMezqfxB8zTEQRk4yYgB9truidCJwpCj-' \
+    b'ESTGRhIyVpEkLQ-xWfGIN_cHgwmXhVdB5zK3BFVS6cjkQZHNmTDf_zpXFghu8' \
+    b'FzIS3nkQpKO3xClkU7kq9DxdgfNcFD9PjMr4GpI8VdjY98zVExArpEOrGhBKc' \
+    b'ltHIkbjBoKeTJK-2nQmPbRRdpg1'
 
 def main():
     f = Fernet(key)

@@ -4,8 +4,12 @@ $(document).ready(function () {
         $('#feature-request-add').css('display', 'none');
         $('#feature-request-form').css('display', 'block');
         $('#requests-table').css('display', 'none');
+        $('#no-feature').css('display', 'none');
         $('#return-button').css('display', 'block');
     })
+
+    // hide the loader
+    $('#loader').css('display', 'none');
 
     // create form validation
     $('.ui.form').form({
@@ -75,6 +79,8 @@ $(document).ready(function () {
         if (feature_form.form('is valid')) {
             // form is valid
             values = feature_form.serializeArray()
+            // show the loader
+            $('#loader').css('display', 'none');
             // send form values to server
             $.ajax({
                 type: 'POST',
@@ -84,8 +90,9 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: function submitFormCallback(data) {
                     // show submission confirmation to user
-                    $('#feature-request-form').css('display', 'none')
-                    $('#form-filled').css('display', 'block')
+                    $('#feature-request-form').css('display', 'none');
+                    $('#form-filled').css('display', 'block');
+                    $('#loader').css('display', 'none');
                     setTimeout(function () {
                         window.location.reload()
                     }, 1000);
@@ -93,7 +100,8 @@ $(document).ready(function () {
                 error: function submitFail(err) {
                     console.log(err)
                     // error submitting form
-                    $('#error-form').css('display', 'block')
+                    $('#error-form').css('display', 'block');
+                    $('#loader').css('display', 'none');
                     setTimeout(function () {
                         window.location.reload()
                     }, 3000);

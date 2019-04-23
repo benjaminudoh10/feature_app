@@ -35,6 +35,8 @@ It was built with the Flask Web Framework
 7. Run tests `python tests.py`
 
 ## Deployment
-This application was deployed to pythonanywhere.com which has servers that run on Ubuntu. It was deployed by cloning the application from the current repository on github and setting up the database.
+This application was deployed to pythonanywhere.com which runs on Ubuntu server. 
+It was deployed by cloning the application from the current repository on 
+github and setting up the database.
 
->Visit http://ben-feature-req.pythonanywhere.com/ to view the current landing page of this project.
+>Visit http://benjaminudoh10.pythonanywhere.com/ to view the current landing page of this project.

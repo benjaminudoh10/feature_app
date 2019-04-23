@@ -1,5 +1,5 @@
 from flask import render_template
-from flask import request, jsonify
+from flask import request, jsonify, redirect, url_for
 from datetime import datetime
 
 from feature_app import app, models, db
@@ -73,3 +73,11 @@ def index():
     return render_template(
         'index.html', feature_requests=feature_requests,
         pagination=pagination)
+
+@app.route('/delete/<int:feature_id>')
+def delete(feature_id):
+    feature = models.FeatureRequest.query.get(feature_id)
+    db.session.delete(feature)
+    db.session.commit()
+
+    return redirect(url_for('index'))

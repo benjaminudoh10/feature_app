@@ -2,7 +2,7 @@
 {% import '_pagination.html' as macros %}
 {% block body %}
     <div class="ui text container home">
-        <h1 class="header"><span>IWS</span>Feature Request App</h1>
+        <h1 class="header"><span>IWS</span>&nbsp;Feature Request App</h1>
         <div class="ui grid">
             <div class="row" id="feature-request-add">
                 <div class="ui twelve wide column">
@@ -31,6 +31,7 @@
                                     <th>Client Priority</th>
                                     <th>Target Date</th>
                                     <th>Product Area</th>
+                                    <th>Actions</th>
                                 </thead>
                                 <tbody>
                                     {% for request in feature_requests %}
@@ -41,6 +42,12 @@
                                             <td>{{ request.client_priority }}</td>
                                             <td>{{ request.target_date.strftime('%B %d, %Y') }}</td>
                                             <td>{{ request.product_area.name }}</td>
+                                            <td>
+                                                <a class="ui basic icon button"
+                                                    href="/delete/{{ request.id }}">
+                                                    <i class="trash icon"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
@@ -50,6 +57,14 @@
                             {{ macros.pagination_widget(pagination, 'index') }}
                         </div>
                     </div>
+                </div>
+            {% else %}
+                <div class="row" id="no-feature">
+                    <i class="ui centered huge plus icon"></i><br>
+                    <h3>
+                        No feature has been added. 
+                        Click button above to add features.
+                    </h3>
                 </div>
             {% endif %}
             <div class="row" id="feature-request-form">
@@ -95,13 +110,16 @@
                                 </select>
                             </div>
                             <button id="submit-button" 
-                                class="ui green basic button" type="submit">
+                                class="ui green button" type="submit">
                                 Submit
                             </button>
                             <div class="ui error message"></div>
                         </form>
                     </div>
                 </div>
+            </div>
+            <div id="loader">
+                <div class="ui active huge centered inline loader"></div>
             </div>
             <div class="row" id="form-filled">
                 <div class="ui twelve wide column">

@@ -23,7 +23,13 @@ body {
 
 #feature-request-button {
     background-color: #018ea7;
-    color: #ffffff;
+    color: white;
+}
+
+#no-feature {
+    color: white;
+    font-size: 32px;
+    text-align: center;
 }
 
 #return-button, #feature-request-form, #form-filled, #error-form {
