@@ -1,7 +1,7 @@
 # Feature Request App
 
-Feature Request App is a web application that allows the user to create "feature requests".
-It was built with the Flask Web Framework
+Feature Request App is a web application that enables the user to create "feature requests".
+It was built with the Flask Web Framework.
 
 ## Tools
 * **Flask**
@@ -13,6 +13,8 @@ It was built with the Flask Web Framework
 * **SemanticUI**
 
 * **JQuery**
+
+* **Flatpickr**
 
 ### Usage:
 
@@ -28,9 +30,9 @@ It was built with the Flask Web Framework
 
 7. Upgrade Database `flask db upgrade`
 
-5. run flask server `flask run`
+5. Run flask server `flask run`
 
-6. Visit Landing Page at http://localhost:5000/
+6. Visit Home Page at http://localhost:5000/
 
 7. Run tests `python tests.py`
 
